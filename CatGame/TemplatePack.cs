@@ -3,11 +3,15 @@ using ClassTeamArena.Core;
 namespace ClassTeamArena.GamePacks._TEMPLATE;
 
 // Kopiere den Ordner, benenne ihn um und passe Id/Title/Display/Settings an.
-public sealed class TemplatePack : IGamePack
+public sealed class CatGame : IGamePack
 {
-    public string Id => "_TEMPLATE"; // muss dem Ordnernamen entsprechen
-    public string Title => "TEMPLATE – Bitte umbenennen";
-    public string Tagline => "Kurzbeschreibung des Spiels.";
+    public string Id => "CatGame"; // muss dem Ordnernamen entsprechen
+    public string Title => "Katzen Spiel";
+    public string Tagline => @"Helfe der Katze dem Feuer zu entkommen!
+ _._     _,-'""`-._
+(,-.`._,'(       |\`-/|
+    `-.-' \ )-`( , o o)
+          `-    \`_`""'-";
 
     public GameDisplay Display => new(
         StatAName: "Ressource A",
@@ -23,8 +27,8 @@ public sealed class TemplatePack : IGamePack
         TargetProgress: 80
     );
 
-    public string StoryPath => Path.Combine("GamePacks", Id, "story.md");
-    public string RulesPath => Path.Combine("GamePacks", Id, "rules.md");
+    public string StoryPath => Path.Combine("GamePacks", Id, Id, "story.md");
+    public string RulesPath => Path.Combine("GamePacks", Id, Id, "rules.md");
 
     public GameState CreateInitialState() => new GameState();
 
